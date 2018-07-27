@@ -9,6 +9,9 @@ const jwt = require('jsonwebtoken');
 var config = require('../config/config');
 const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
+
+const Cleaner = require('database-cleaner');
+const dbCleaner = new Cleaner('mongodb');
 describe('## Super Powers APIs', () => {
     let adminJwtToken = '';
     const superPowerExample = {
@@ -21,12 +24,12 @@ describe('## Super Powers APIs', () => {
         roles: [new Role({name: "Admin"})]
     };
     before((done) => {
-        new User(rootUser).save().then(function(user) {
-            adminJwtToken = jwt.sign({ username: rootUser.username, password: rootUser.password, roles: rootUser.roles}, config.jwt_secret);
-            new SuperPower(superPowerExample).save().then(function(aux) {
+        
+        mongoose.connect(config.url, function (err) {
+            dbCleaner.clean(mongoose.connection.db, () => {
                 done();
             });
-        }).catch(done);
+        });
 
     });
     after(function (done) {
@@ -34,6 +37,14 @@ describe('## Super Powers APIs', () => {
         mongoose.modelSchemas = {};
         mongoose.connection.close();
         done();
+    });
+    it('Seeder', function(done) {
+        new User(rootUser).save().then(function(user) {
+            adminJwtToken = jwt.sign({ username: rootUser.username, password: rootUser.password, roles: rootUser.roles}, config.jwt_secret);
+            new SuperPower(superPowerExample).save().then(function(aux) {
+                done();
+            });
+        }).catch(done);
     });
     describe('Testing insert superPower', function(){
         it('it responds with 400 status code if we forget to send name', function(done) {

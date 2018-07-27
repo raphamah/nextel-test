@@ -5,20 +5,24 @@ var app = require('../../server.js');
 const Role = require('../models/role.model.js');
 const User = require('../models/user.model.js');
 const SuperHero = require('../models/superHero.model.js');
+const ProtectionArea = require('../models/protectionArea.model.js');
 const jwt = require('jsonwebtoken');
 var config = require('../config/config');
 const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
+
+const Cleaner = require('database-cleaner');
+const dbCleaner = new Cleaner('mongodb');
 describe('## Super Heroes APIs', () => {
     let adminJwtToken = '';
     const superHeroExample = {
         "name":"Iron Man",
         "alias":"Tony Stark",
-        "protectionArea": {
+        "protectionArea": new ProtectionArea({
             "name" : "Gotham",
             "loc" : [20.00000,20.00000],
             "radius" : 20.00
-        }
+        })
     };
     const rootUser = {
         username: "admin",
@@ -26,18 +30,25 @@ describe('## Super Heroes APIs', () => {
         roles: [new Role({name: "Admin"})]
     };
     before((done) => {
-        new User(rootUser).save().then(function(user) {
-            adminJwtToken = jwt.sign({ username: rootUser.username, password: rootUser.password, roles: rootUser.roles}, config.jwt_secret);
-            new SuperHero(superHeroExample).save().then(function(aux) {
+        mongoose.connect(config.url, function (err) {
+            dbCleaner.clean(mongoose.connection.db, () => {
                 done();
             });
-        }).catch(done);
+        });
     });
     after(function (done) {
         mongoose.models = {};
         mongoose.modelSchemas = {};
         mongoose.connection.close();
         done();
+    });
+    it('Seeder', function(done) {
+        new User(rootUser).save().then(function(user) {
+            adminJwtToken = jwt.sign({ username: rootUser.username, password: rootUser.password, roles: rootUser.roles}, config.jwt_secret);
+            new SuperHero(superHeroExample).save().then(function(aux) {
+                done();
+            });
+        }).catch(done);
     });
     describe('Testing insert superHero', function(){
 

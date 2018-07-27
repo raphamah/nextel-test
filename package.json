@@ -11,8 +11,8 @@
   "scripts": {
     "start": "node server.js",
     "start:nodemon": "nodemon server.js",
-    "test": "./node_modules/.bin/mocha ./app/test --ui bdd --reporter spec --colors server --recursive",
-    "test:coverage": "./node_modules/.bin/istanbul cover _mocha -- --ui bdd --reporter spec --colors server --recursive"
+    "test": "./node_modules/.bin/mocha ./app/test --ui bdd --reporter spec --colors server --recursive --timeout 10000",
+    "test:coverage": "./node_modules/.bin/istanbul cover _mocha -- --ui bdd --reporter spec --colors server --recursive --timeout 10000"
   },
   "keywords": [
     "Nextel"
@@ -24,6 +24,7 @@
     "body-parser": "^1.18.2",
     "chai": "^4.1.2",
     "cross-env": "^5.2.0",
+    "database-cleaner": "^1.2.0",
     "express": "^4.16.3",
     "express-validation": "^1.0.2",
     "http-status": "^1.2.0",

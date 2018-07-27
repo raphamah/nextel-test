@@ -8,6 +8,9 @@ const jwt = require('jsonwebtoken');
 var config = require('../config/config');
 const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
+
+const Cleaner = require('database-cleaner');
+const dbCleaner = new Cleaner('mongodb');
 describe('## Users APIs', () => {
     let adminJwtToken = '';
     const rootUser = {
@@ -16,16 +19,25 @@ describe('## Users APIs', () => {
         roles: [new Role({name: "Admin"})]
     };
     before((done) => {
-        new User(rootUser).save().then(function(user) {
-            adminJwtToken = jwt.sign({ username: rootUser.username, password: rootUser.password, roles: rootUser.roles}, config.jwt_secret);
-            done();
-        }).catch(done);
+        
+        mongoose.connect(config.url, function (err) {
+            dbCleaner.clean(mongoose.connection.db, () => {
+                done();
+            });
+        });
+        
     });
     after(function (done) {
         mongoose.models = {};
         mongoose.modelSchemas = {};
         mongoose.connection.close();
         done();
+    });
+    it('Seeder', function(done) {
+        new User(rootUser).save().then(function(user) {
+            adminJwtToken = jwt.sign({ username: rootUser.username, password: rootUser.password, roles: rootUser.roles}, config.jwt_secret);
+            done();
+        }).catch(done);
     });
     describe('Testing sign_in', function(){
         it('it responds with 401 status code if bad username or password', function(done) {
