@@ -1,0 +1,41 @@
+{
+  "name": "Nextel",
+  "version": "1.0.0",
+  "description": "Nextel",
+  "main": "server.js",
+  "engines": {
+    "node": ">=8.10.0",
+    "npm": ">=5.6.0",
+    "yarn": ">=1.5.1"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "start:nodemon": "nodemon server.js",
+    "test": "./node_modules/.bin/mocha ./app/test --ui bdd --reporter spec --colors server --recursive",
+    "test:coverage": "./node_modules/.bin/istanbul cover _mocha -- --ui bdd --reporter spec --colors server --recursive"
+  },
+  "keywords": [
+    "Nextel"
+  ],
+  "author": "JSA",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.0",
+    "body-parser": "^1.18.2",
+    "chai": "^4.1.2",
+    "cross-env": "^5.2.0",
+    "express": "^4.16.3",
+    "express-validation": "^1.0.2",
+    "http-status": "^1.2.0",
+    "istanbul": "^0.4.5",
+    "joi": "^13.4.0",
+    "jsonwebtoken": "^8.3.0",
+    "mocha": "^5.2.0",
+    "mongoose": "^5.0.13",
+    "pubsub-js": "^1.6.0",
+    "redis": "^2.8.0",
+    "sinon": "^6.1.4",
+    "supertest": "^3.1.0",
+    "supertest-as-promised": "^4.0.2"
+  }
+}

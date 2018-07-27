@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+  nextel:
+    build:
+      context: .
+    ports:
+      - "4040:4040"
+    image: nextel:latest
+
+    # Link to containers in another service.
+    # Links also express dependency between services in the same way as depends_on,
+    # so they determine the order of service startup.
+    links:
+      - mongo
+      - redis
+
+    command:
+      - /bin/bash
+      - -c
+      - npm test
+  redis:
+    image: "redis:alpine"
+    ports:
+        - "6379:6379"
+  mongo:
+    image: "mongo:3.4.2"
+    ports:
+      - "27017:27017"
