@@ -7,12 +7,13 @@ const User = require('../models/user.model.js');
 const SuperHero = require('../models/superHero.model.js');
 const ProtectionArea = require('../models/protectionArea.model.js');
 const jwt = require('jsonwebtoken');
-var config = require('../config/config');
+const config = require('../config/config');
 const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 
 const Cleaner = require('database-cleaner');
 const dbCleaner = new Cleaner('mongodb');
+global.dbCleaner = dbCleaner;
 describe('## Super Heroes APIs', () => {
     let adminJwtToken = '';
     const superHeroExample = {
@@ -37,10 +38,12 @@ describe('## Super Heroes APIs', () => {
         });
     });
     after(function (done) {
-        mongoose.models = {};
-        mongoose.modelSchemas = {};
-        mongoose.connection.close();
-        done();
+        dbCleaner.clean(mongoose.connection.db, () => {
+            mongoose.models = {};
+            mongoose.modelSchemas = {};
+            mongoose.connection.close();
+            done();
+        });
     });
     it('Seeder', function(done) {
         new User(rootUser).save().then(function(user) {
