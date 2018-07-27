@@ -21,7 +21,6 @@ describe('## Super Powers APIs', () => {
         roles: [new Role({name: "Admin"})]
     };
     before((done) => {
-        
         new User(rootUser).save().then(function(user) {
             adminJwtToken = jwt.sign({ username: rootUser.username, password: rootUser.password, roles: rootUser.roles}, config.jwt_secret);
             new SuperPower(superPowerExample).save().then(function(aux) {

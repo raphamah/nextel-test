@@ -20,7 +20,6 @@ describe('## Users APIs', () => {
             adminJwtToken = jwt.sign({ username: rootUser.username, password: rootUser.password, roles: rootUser.roles}, config.jwt_secret);
             done();
         }).catch(done);
-        
     });
     after(function (done) {
         mongoose.models = {};
