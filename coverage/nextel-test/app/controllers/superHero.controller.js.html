@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for nextel-test\app\controllers\superHero.controller.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">nextel-test/app/controllers/</a> superHero.controller.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">71.08% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>59/83</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">53.57% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>15/28</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">70.73% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>58/82</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const SuperHero = require("../models/superHero.model.js");
+const ProtectionArea = require("../models/protectionArea.model.js");
+const User = require("../models/user.model.js");
+const config = require("../config/config");
+const createRedisClient = require("../config/createRedisClient");
+// POST a SuperHero
+exports.create = (req, res) =&gt; {
+	var client = createRedisClient();
+&nbsp;
+	// Create a superHero
+	const superHero = new SuperHero({
+		name: req.body.name,
+		alias: req.body.alias,
+		superPowers: req.body.superPowers
+	});
+&nbsp;
+	client.del("superHeroes");
+	client.del("superPowers");
+    
+	<span class="missing-if-branch" title="else path not taken" >E</span>if(req.body.protectionArea._id)
+	{
+		SuperHero.protectionArea = req.body.protectionArea._id;
+		createSuperHero(superHero);
+		return;
+	}
+&nbsp;
+	// Save the protection Area first
+<span class="cstat-no" title="statement not covered" >	const protectionArea = new ProtectionArea({</span>
+		name: req.body.protectionArea.name,
+		loc: [req.body.protectionArea.coordinates[0],req.body.protectionArea.coordinates[1]],
+		radius: req.body.protectionArea.radius
+	});
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	protectionArea.save()</span>
+		.then(protArea =&gt; {
+<span class="cstat-no" title="statement not covered" >			superHero.protectionArea = protArea._id;</span>
+<span class="cstat-no" title="statement not covered" >			createSuperHero(superHero);</span>
+		}).catch(errArea =&gt; {
+<span class="cstat-no" title="statement not covered" >			res.status(500).send({</span>
+				message: errArea.message
+			});
+		});
+	function createSuperHero(superHero)
+	{
+&nbsp;
+		superHero.save()
+			.then(data =&gt; {
+				User.publish("SuperHero",data._id,"CREATE",req.headers.authorization,config.jwt_secret);
+				res.send(data);
+			}).catch(err =&gt; {
+<span class="cstat-no" title="statement not covered" >				res.status(500).send({</span>
+					message: err.message
+				});
+			});
+	}
+};
+&nbsp;
+&nbsp;
+// FETCH all SuperHeroes
+exports.findPaginate = (req, res) =&gt; {
+&nbsp;
+	var client = createRedisClient();
+	client.hget("superHeroes","superHeroes-"+req.query.page+"-"+req.query.limit, function (err, obj) {
+		if(err || !obj)
+		{
+			SuperHero.paginate({}, { page: req.query.page, limit: req.query.limit })
+				.then(superHeroes =&gt; {
+					let jsonResponse = {
+						"resp" : superHeroes
+					};
+					res.send(jsonResponse);
+					client.hmset("superHeroes", ["superHeroes-"+req.query.page+"-"+req.query.limit, JSON.stringify(jsonResponse)], function () {
+&nbsp;
+					});
+				}).catch(err =&gt; {
+<span class="cstat-no" title="statement not covered" >					res.status(500).send({</span>
+						message: err.message
+					});
+				});
+		}
+		else
+		{
+			res.send(obj);
+		}
+	});
+    
+};
+&nbsp;
+exports.helpMe = (req, res) =&gt; {
+	var client = createRedisClient();
+	client.hget("superHeroes","HelpMe-"+req.query.latitude+"-"+req.query.longitude, function (err, obj) {
+		<span class="missing-if-branch" title="else path not taken" >E</span>if(err || !obj)
+		{
+			ProtectionArea.find({
+				loc: {
+					$near: {
+						$geometry: {
+							type: "Point",
+							coordinates: [req.query.latitude,req.query.longitude]
+						},
+						$maxDistance: 10000
+					}
+				} 
+			})
+				.limit(8)
+				.then(protectionAreas =&gt; {
+					let arr = protectionAreas.map(uniqueId =&gt; uniqueId._id);
+					SuperHero.find({
+						"protectionArea": arr
+					})
+						.then(superHeroes =&gt; {
+							let jsonResponse = {
+								"resp" : superHeroes
+							}
+							res.send(jsonResponse);
+							client.hmset("superHeroes", ["HelpMe-"+req.query.latitude+"-"+req.query.longitude, JSON.stringify(jsonResponse)], function () {
+&nbsp;
+							});
+						});
+                
+				}).catch(err =&gt; {
+<span class="cstat-no" title="statement not covered" >					res.status(500).send({</span>
+						message: err.message
+					});
+				});
+		}
+		else
+		{
+<span class="cstat-no" title="statement not covered" >			res.send(obj);</span>
+		}
+	});
+};
+&nbsp;
+&nbsp;
+// FIND a SuperHero
+exports.findOne = (req, res) =&gt; {
+	var client = createRedisClient();
+	client.hget("superHeroes","superHero-"+req.params.id, function (err, obj) {
+		<span class="missing-if-branch" title="else path not taken" >E</span>if(err || !obj)
+		{
+			SuperHero.findById(req.params.id)
+				.then(superHero =&gt; {
+					<span class="missing-if-branch" title="if path not taken" >I</span>if(!superHero) {
+<span class="cstat-no" title="statement not covered" >						return res.status(404).send({</span>
+							message: "SuperHero not found with id " + req.params.id
+						});            
+					}
+					let jsonResponse = {
+						"resp" : superHero
+					}
+					res.send(jsonResponse);
+					client.hmset("superHeroes", ["superHero-"+req.params.id, JSON.stringify(jsonResponse)] );
+				}).catch(err =&gt; {
+					<span class="missing-if-branch" title="else path not taken" >E</span>if(err.kind === "ObjectId") {
+						return res.status(404).send({
+							message: "SuperHero not found with id " + req.params.id
+						});                
+					}
+<span class="cstat-no" title="statement not covered" >					return res.status(500).send({</span>
+						message: "Error retrieving SuperHero with id " + req.params.id
+					});
+				});
+		}
+		else
+		{
+<span class="cstat-no" title="statement not covered" >			res.send(obj);</span>
+		}
+	});
+};
+&nbsp;
+// UPDATE a SuperHero
+exports.update = (req, res) =&gt; {
+	var client = createRedisClient();
+&nbsp;
+	client.del("superHeroes");
+&nbsp;
+	// Find SuperHero and update it
+	SuperHero.findByIdAndUpdate(req.params.id, req.body, {new: true})
+		.then(superHero =&gt; {
+			<span class="missing-if-branch" title="if path not taken" >I</span>if(!superHero) {
+<span class="cstat-no" title="statement not covered" >				return res.status(404).send({</span>
+					message: "SuperHero not found with id " + req.params.id
+				});
+			}
+			User.publish("SuperHero",superHero._id,"UPDATE",req.headers.authorization,config.jwt_secret);
+			res.send(superHero);
+		}).catch(err =&gt; {
+			<span class="missing-if-branch" title="else path not taken" >E</span>if(err.kind === "ObjectId") {
+				return res.status(404).send({
+					message: "SuperHero not found with id " + req.params.id
+				});                
+			}
+<span class="cstat-no" title="statement not covered" >			return res.status(500).send({</span>
+				message: "Error updating SuperHero with id " + req.params.id
+			});
+		});
+};
+&nbsp;
+// DELETE a superHero
+exports.delete = (req, res) =&gt; {
+<span class="cstat-no" title="statement not covered" >	var client = createRedisClient();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	client.del("superHeroes");</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	SuperHero.findByIdAndRemove(req.params.id)</span>
+		.then(superHero =&gt; {
+<span class="cstat-no" title="statement not covered" >			if(!superHero) {</span>
+<span class="cstat-no" title="statement not covered" >				return res.status(404).send({</span>
+					message: "SuperHero not found with id " + req.params.id
+				});
+			}
+<span class="cstat-no" title="statement not covered" >			User.publish("SuperHero",superHero._id,"DELETE",req.headers.authorization,config.jwt_secret);</span>
+<span class="cstat-no" title="statement not covered" >			res.send({message: "SuperHero deleted successfully!"});</span>
+		}).catch(err =&gt; {
+<span class="cstat-no" title="statement not covered" >			if(err.kind === "ObjectId" || err.name === "NotFound") {</span>
+<span class="cstat-no" title="statement not covered" >				return res.status(404).send({</span>
+					message: "SuperHero not found with id " + req.params.id
+				});                
+			}
+<span class="cstat-no" title="statement not covered" >			return res.status(500).send({</span>
+				message: "Could not delete superHero with id " + req.params.id
+			});
+		});
+};</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Jul 29 2018 09:37:12 GMT-0300 (Hora oficial do Brasil)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>
