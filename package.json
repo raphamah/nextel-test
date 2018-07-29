@@ -11,13 +11,15 @@
   "scripts": {
     "start": "node server.js",
     "start:nodemon": "nodemon server.js",
+    "lint": "eslint *.js app/** --color",
+    "lint:fix": "eslint *.js app/** --color --fix",
     "test": "./node_modules/.bin/mocha ./app/test --ui bdd --reporter spec --colors server --recursive --timeout 10000",
-    "test:coverage": "./node_modules/.bin/istanbul cover _mocha -- --ui bdd --reporter spec --colors server --recursive --timeout 10000"
+    "test:coverage": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha ./app/test/* --ui bdd --reporter -R spec --colors server --recursive --report html"
   },
   "keywords": [
     "Nextel"
   ],
-  "author": "JSA",
+  "author": "Raphael Santos",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.0",
@@ -25,6 +27,7 @@
     "chai": "^4.1.2",
     "cross-env": "^5.2.0",
     "database-cleaner": "^1.2.0",
+    "eslint": "^5.2.0",
     "express": "^4.16.3",
     "express-validation": "^1.0.2",
     "http-status": "^1.2.0",
@@ -32,7 +35,7 @@
     "joi": "^13.4.0",
     "jsonwebtoken": "^8.3.0",
     "mocha": "^5.2.0",
-    "mongoose": "^5.0.13",
+    "mongoose": "^5.2.5",
     "pubsub-js": "^1.6.0",
     "redis": "^2.8.0",
     "sinon": "^6.1.4",

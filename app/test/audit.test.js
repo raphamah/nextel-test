@@ -1,7 +1,7 @@
-var chai = require('chai');
-var expect = chai.expect;
-var request = require('supertest');
-var app = require('../../server.js');
+//var chai = require("chai");
+//var expect = chai.expect;
+//var request = require("supertest");
+//var app = require("../../server.js");
 
 /*describe('Subscribe', function(){
 

@@ -1,5 +1,5 @@
 # Nextel App
-This repo is dedicated to use Node, express, mongo, mongoose, redis, mocha, PubSub, Joi, Express validation, Docker, Docker Compose, and more things...
+This repo is dedicated to use Node, express, mongo, mongoose, redis, mocha, Istanbul, PubSub, Joi, Express validation, Docker, Docker Compose, ESLint, and more things...
 
 ## Install with Docker
 
@@ -26,19 +26,28 @@ docker-compose -f docker-compose.yml up --build
 3- Install dependecies, use:
 
 ```
-yarn
+yarn --ignore-engines
 ```
 
 4- To run tests, use:
 ```
 npm run test
 ```
+
 5- To run tests coverage with istanbul, use:
 ```
 npm run test:coverage
 ```
 
+OBS: Reports will be located at directory coverage
+
+
 6- To run the code, use: 
 ```
 npm start
+```
+
+7- To run lint, use: 
+```
+npm run lint
 ```

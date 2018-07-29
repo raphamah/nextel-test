@@ -1,26 +1,26 @@
-const express = require('express');
-const validate = require('express-validation');
-const paramValidation = require('../config/super-hero.validation');
-var SuperHero = require('../controllers/superHero.controller.js');
+const express = require("express");
+const validate = require("express-validation");
+const paramValidation = require("../config/super-hero.validation");
+var SuperHero = require("../controllers/superHero.controller.js");
 const router = express.Router(); // eslint-disable-line new-cap
-const permissions = require('../middlewares/permissions.js');
-router.route('/')
+const permissions = require("../middlewares/permissions.js");
+router.route("/")
 
-  .get(validate(paramValidation.paginate), permissions.typeStandard, permissions.havePermissions, SuperHero.findPaginate)
+	.get(validate(paramValidation.paginate), permissions.typeStandard, permissions.havePermissions, SuperHero.findPaginate)
 
-  .post(validate(paramValidation.create), permissions.typeAdmin, permissions.havePermissions, SuperHero.create);
+	.post(validate(paramValidation.create), permissions.typeAdmin, permissions.havePermissions, SuperHero.create);
 
-router.route('/help')
+router.route("/help")
 
-  .get(permissions.typeStandard, permissions.havePermissions, SuperHero.helpMe);
+	.get(permissions.typeStandard, permissions.havePermissions, validate(paramValidation.help), SuperHero.helpMe);
 
-router.route('/id/:id')
+router.route("/id/:id")
 
-  .get(permissions.typeStandard, permissions.havePermissions, SuperHero.findOne)
+	.get(permissions.typeStandard, permissions.havePermissions, SuperHero.findOne)
 
-  .put(permissions.typeAdmin, permissions.havePermissions, validate(paramValidation.update), SuperHero.update)
+	.put(permissions.typeAdmin, permissions.havePermissions, validate(paramValidation.update), SuperHero.update)
 
-  .delete(permissions.typeAdmin, permissions.havePermissions, SuperHero.update);
+	.delete(permissions.typeAdmin, permissions.havePermissions, SuperHero.update);
 
 
 

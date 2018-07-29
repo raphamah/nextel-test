@@ -14,7 +14,8 @@ WORKDIR /app
 ADD package.json yarn.lock /app/
 
 # --pure-lockfile: Don’t generate a yarn.lock lockfile
-RUN yarn install --pure-lockfile --network-concurrency 1
+RUN yarn install --pure-lockfile --network-concurrency 1 
+#RUN yarn install --pure-lockfile
 
 # copy all file from current dir to /app in container
 COPY . /app/
